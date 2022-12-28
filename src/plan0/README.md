@@ -11,3 +11,11 @@ nextLine(); ?? 아니면 다음 문자를 가야하기 때문?
 StringTokenizer
 
 ![img.png](../source/sc_bf.png)
+
+## 출력
+
+### System.out.println()
+
+### BufferedWriter OutputStreamWriter System.out
+
+- 정수출력 문제
