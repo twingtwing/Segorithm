@@ -21,9 +21,34 @@ public class Math01 {
 //        writer.close();
 //        reader.close();
 
-        //1978 :
-        //4948 :
-        //15649 :
+        //1978 : 주어진 수 N개 중에서 소수가 몇 개인지 찾아서 출력 (N갯수 100이하, N <= 1000)
+//        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+//        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
+//
+//        boolean flag = false;
+//        int num = 0;
+//        int count = 0;
+//        int in = Integer.parseInt(reader.readLine());
+//        StringTokenizer str = new StringTokenizer(reader.readLine());
+//
+//        while(in-- > 0){
+//            flag = false;
+//            num = Integer.parseInt(str.nextToken());
+//            if (num <= 1) continue;
+//            for (int i = 2; i <= num/i; i++){
+//                if (num % i == 0) {
+//                    flag = true;
+//                    break;
+//                }
+//            }
+//            if(!flag) count++;
+//        }
+//
+//        writer.write(String.valueOf(count));
+//
+//        writer.close();
+//        reader.close();
+
         //2609 :
     }
 }
