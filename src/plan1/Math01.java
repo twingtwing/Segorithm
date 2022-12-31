@@ -49,25 +49,12 @@ public class Math01 {
 //        writer.close();
 //        reader.close();
 
-        //2609 : 두 개의 자연수를 입력받아 최대 공약수와 최소 공배수를 출력
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
-
-        StringTokenizer str = new StringTokenizer(reader.readLine());
-        StringBuilder result = new StringBuilder();
-
-        int one = Integer.parseInt(str.nextToken());
-        int two = Integer.parseInt(str.nextToken());
-
-        // 최소공배수
-
-
-        // 최대공약수
-
-        writer.write(result.toString());
-
-        writer.close();
-        reader.close();
+        //9020
+        //11653
+        //6588
+        //1182
+        //6603
+        //15650
 
     }
 }
