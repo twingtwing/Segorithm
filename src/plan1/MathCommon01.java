@@ -62,6 +62,7 @@ public class MathCommon01 {
     }
 
     private static void getOddNum(int num, int div, HashMap<Integer, Integer> hashMap) {
+        if (num == 1) return; // 1의 경우를 고려
         if (num % div == 0) {
             hashMap.put(div, hashMap.getOrDefault(div, 0) + 1);
             if (num == div) return;

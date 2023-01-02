@@ -7,8 +7,6 @@ import java.util.Map;
 public class MathPrime02 {
     public static void main(String[] args) throws IOException {
         //4948 : 자연수 n이 주어졌을 때, n보다 크고, 2n보다 작거나 같은 소수의 개수 (1 ≤ n ≤ 123,456)
-        // n의 갯수를 정하였기 때문에 배열로 가능함 이때의 배열 값에는 소수의 갯수를 저장함
-        // 소수의 갯수를 저장한 index는 나중에 다시 안하도록 저장
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
 
