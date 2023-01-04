@@ -1,14 +1,16 @@
 package plan1;
 
 import java.io.*;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class Math01 {
     public static void main(String[] args) throws IOException {
         //8393 : n이 주어졌을 때, 1부터 n까지 합 (1 ≤ n ≤ 10,000)
-//        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-//        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
 //
 //        int count = Integer.parseInt(reader.readLine());
 //        int sum = 0;
@@ -49,14 +51,34 @@ public class Math01 {
 //        writer.close();
 //        reader.close();
 
+        //2407 : nCm을 출력 (5 ≤ n ≤ 100, 5 ≤ m ≤ 100, m ≤ n)
+        // nCm : n개의 숫자를 6가지 조헙 할 수 있는 경우의 수
+//        BufferedReader reader =  new BufferedReader(new InputStreamReader(System.in));
+//        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
+//
+//        StringTokenizer str = new StringTokenizer(reader.readLine());
+//        int n = Integer.parseInt(str.nextToken());
+//        int m = Integer.parseInt(str.nextToken());
+//
+//        BigDecimal p = new BigDecimal(1);
+//        BigDecimal f = new BigDecimal(1);
+//
+//        for (int i = 0; i < m; i++) {
+//            p = p.multiply(BigDecimal.valueOf(n-i));
+//            f = f.multiply(BigDecimal.valueOf(m-i));
+//        }
+//
+//        BigDecimal result = p.divide(f, RoundingMode.HALF_DOWN);
+//
+//        writer.write(String.valueOf(result));
+
         //2981 : N개의 숫자들을 m으로 나누어서 나머지가 모두 같아지는 m을 모두 구해라 (2 ≤ N ≤ 100)
 
-
-
-        //2407
-        //10974
-        //2824
         //17103
         //17087
+
+        writer.close();
+        reader.close();
+
     }
 }
