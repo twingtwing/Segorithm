@@ -36,6 +36,8 @@ public class MathPrime03 {
         result.append(String.valueOf(one)).append(" ").append(String.valueOf(in - one)).append("\n");
     }
 
+    // 해당 방법은 에라코네스 체가 아님!!
+    // 나머지를 구하는게 아니라 배수를 구해서 체로 걸러내야함
     private static void madePrime(int in) {
         for (int i = max; i <= in; i++){
             prime[i] = true;
