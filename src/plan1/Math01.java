@@ -72,9 +72,6 @@ public class Math01 {
 //
 //        writer.write(String.valueOf(result));
 
-        //2981 : N개의 숫자들을 m으로 나누어서 나머지가 모두 같아지는 m을 모두 구해라 (2 ≤ N ≤ 100)
-
-
         writer.close();
         reader.close();
 
