@@ -15,7 +15,7 @@ public class DSstack02 {
 //        char [] stack;
 //        int sum;
 //        int top;
-//        String out;
+//        String out;ㅅ
 //
 //        while (count-- > 0) {
 //            stack = reader.readLine().toCharArray();
@@ -55,7 +55,7 @@ public class DSstack02 {
 //
 //        writer.write(String.valueOf(sum));
 
-        // 1935 : 후위 표기식 => 선입선출이기 때문에 Stack으로 구현가능
+        // 1935 : 후위 표기식 =>  후입선출이기 때문에 Stack으로 구현가능
         // 대문자 A~Z 아스키 코드 : 65 ~ 90
         int [] ints = new int[Integer.parseInt(reader.readLine())];
         char [] chars = reader.readLine().toCharArray();
