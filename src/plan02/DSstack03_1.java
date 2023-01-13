@@ -15,7 +15,7 @@ class Stack03{
         Node(char data){this.data = data;}
     }
 
-    Stack03() { this.cursor = new Node();}
+    Stack03(){this.cursor = new Node('0');}
 
     boolean isEmptyCur(){return this.cursor.data == '0';}
 
@@ -38,25 +38,24 @@ class Stack03{
     void delete(){
         if (isEmpytLeft()) return;
         this.cursor.left = this.cursor.left.left;
+        if (!isEmpytLeft()) this.cursor.left.right = this.cursor;
         if (isEmpytLeft() && isEmptyCur()) this.top = null;
     }
 
     void insertLeft(char data) {
-        if (isEmptyCur()) {
-            insert(data);
-            return;
-        }
 
         Node node = new Node(data);
-
-        if (isEmpytLeft()) this.cursor.left = node;
-        else this.cursor.left.right = node;
-
+        if (!isEmpytLeft()) {
+            this.cursor.left.right = node;
+            node.left = this.cursor.left;
+        }
+        this.cursor.left = node;
         node.right = this.cursor;
+        if (isEmptyCur()) this.top = node;
 
     }
 
-    void insert(char data){
+    void push(char data){
         Node node = new Node(data);
         if (!isEmpty()) this.top.right = node;
         node.left = this.top;
@@ -64,29 +63,26 @@ class Stack03{
         this.cursor.left = node;
         this.top = node;
     }
-    
-    String print(){
-        StringBuilder result = new StringBuilder();
-        Node next = this.top;
-        while (next != null){
-            result.insert(0,next.data);
-            next = next.left;
-        }
-        
-        return result.toString();
+
+    char pop(){
+        if (isEmpty()) return '0';
+        char data = this.top.data;
+        this.top = this.top.left;
+        return data;
     }
-    
+
 }
 
-public class DSstack03 {
+public class DSstack03_1 {
     public static void main(String[] args) throws IOException {
         //1406 : 소문자만을 기록할 수 있는 편집기 + 커서 존재 => 후입선출 Stack을 이용한다.
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
 
         Stack03 stack = new Stack03();
-        
-        for (char c : reader.readLine().toCharArray()) stack.insert(c);
+        Stack03 st = new Stack03();
+
+        for (char c : reader.readLine().toCharArray()) stack.push(c);
 
         int count = Integer.parseInt(reader.readLine());
         StringTokenizer str;
@@ -106,7 +102,17 @@ public class DSstack03 {
             }
         }
 
-        writer.write(stack.print());
+        StringBuilder result = new StringBuilder();
+        while(!stack.isEmpty()){
+            st.push(stack.pop());
+        }
+
+        // StringBuilder의 경우 insert에 인덱스를 지정한게 매우 오래 걸림
+        while(!st.isEmpty()){
+            result.append(st.pop());
+        }
+
+        writer.write(result.toString());
 
         writer.close();
         reader.close();
