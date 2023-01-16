@@ -24,7 +24,7 @@ public class DSstack04 {
         }
 
         // 다시 만들기 ,,,ㅋㅋㅋㅋㅋㅋ 이거 어렵네
-       while (--count > 0) {
+        while (--count > 0) {
             in = Integer.parseInt(reader.readLine());
             if (stack[top] > in){
                 while(top > -1 || stack[top] > in){
