@@ -27,7 +27,7 @@ public class DSstack04 {
         while (--count > 0) {
             in = Integer.parseInt(reader.readLine());
             if (stack[top] > in){
-                while(top > -1 || stack[top] > in){
+                while(top > -1 || stack[top] >  in){
                     storage[++stg] = stack[top--];
                     result.append("-\n");
                 }
