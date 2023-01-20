@@ -41,7 +41,7 @@ public class DSstack04 {
                     }
                 }
                 stack[++top] = in;
-                result.append("+\n");
+                result.append("+\n");d
             }
         }
 
