@@ -19,7 +19,7 @@ public class DSstack04 {
         int stg = -1;
         int in = Integer.parseInt(reader.readLine());
         for (int i = 1; i <= in; i++) {
-            stack[++top] = i;
+            stack[++top] = i;c
             result.append("+\n");
         }
 
