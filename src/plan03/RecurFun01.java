@@ -1,4 +1,4 @@
-package plan04;
+package plan03;
 
 public class RecurFun01 {
     public static void main(String[] args) {
