@@ -72,7 +72,7 @@ class Deque01 {
 
 }
 
-public class DSdeque {
+public class DSdeque01 {
     public static void main(String[] args) throws IOException {
         // 10866 : Deque => 연결 자료구조 버전
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
