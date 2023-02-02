@@ -1,5 +1,10 @@
 # 자료구조
 
+## 회전 하는 자료구조에서 index 구하기
+    index = (index + 1) % size
+
+## Array vs Arraylist
+
 ## 아스키 코드
 
 | ASCII 코드 | 문자        | ASCII 코드 | 문자    | ASCII 코드 | 문자           |ASCII 코드 | 문자           |

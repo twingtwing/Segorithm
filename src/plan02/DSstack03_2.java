@@ -36,7 +36,8 @@ public class DSstack03_2 {
 
         StringBuilder result = new StringBuilder();
 
-
+        while (!stack.isEmpty()) cursor.push(stack.pop());
+        while (!cursor.isEmpty()) result.append(cursor.pop());
 
         writer.write(result.toString());
 
@@ -46,11 +47,11 @@ public class DSstack03_2 {
     }
 
     private static boolean isEmptyL(){
-        return stack.size() == 0;
+        return stack.isEmpty();
     }
 
-    private static boolean isEmptyR(){
-        return cursor.size() == 0;
+    public static boolean isEmptyR(){
+        return cursor.isEmpty();
     }
 
     private static void moveLeft() {
