@@ -2,6 +2,7 @@
 
 ## 회전 하는 자료구조에서 index 구하기
     index = (index + 1) % size
+    index = (size + index - 1) % size
 
 ## Array vs Arraylist
 
