@@ -26,7 +26,8 @@ public class DSqueue03_2 {
             in = Integer.parseInt(token.nextToken());
             for (int i = 0; i < queue.length; i++) {
                 if (queue[i] == in){
-                    if (i + 1 > queue.length / 2) total += queue.length - i;
+                    // i번 움직였다는 의미
+                    if (i > queue.length / 2) total += queue.length - i; // 1 을 빼지않음(오직 앞에서만 pop가능하므로)
                     else total += i;
                     renewAry(i, queue.length);
                     break;
