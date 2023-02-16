@@ -8,6 +8,7 @@ public class RecFun03 {
         // 2447 : 별 찍기27
         Scanner scanner = new Scanner(System.in);
 
+
         int in = scanner.nextInt();
         loopStars((int) Math.cbrt(in), 3);
 
