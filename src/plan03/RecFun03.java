@@ -10,7 +10,7 @@ public class RecFun03 {
 
 
         int in = scanner.nextInt();
-        loopStars((int) Math.cbrt(in), 3);
+        loopStars((int) Math.cbrt(in),  3);
 
         scanner.close();
     }
