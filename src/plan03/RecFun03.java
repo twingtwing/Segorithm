@@ -12,7 +12,7 @@ public class RecFun03 {
         int in = scanner.nextInt();
         loopStars((int) Math.cbrt(in),  3);
 
-        scanner.close();
+        scanner.close();F
     }
 
     // 메모리 문제로 StringTokenizer, StringBuilder 사용을 줄임
