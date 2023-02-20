@@ -16,7 +16,7 @@ public class RecFun03 {
     }
 
     // 메모리 문제로 StringTokenizer, StringBuilder 사용을 줄임
-    private static void loopStars(int count, int len) {
+    private static void loopStars(int count, int l en) {
 //        if (count == 1) return;
 //        StringTokenizer token = new StringTokenizer(result.toString(),"\n");
 //        result.setLength(0);
