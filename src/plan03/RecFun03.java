@@ -26,7 +26,7 @@ public class RecFun03 {
         scanner.close();
     }
 
-    private st atic void loopStart(char[][] stars, int in, int cnt) {
+    private static void loopStart(char[][] stars, int in, int cnt) {
         if (cnt == in){
             System.out.print(Arrays.toString(stars));
             return;
