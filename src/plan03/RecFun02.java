@@ -30,6 +30,7 @@ public class RecFun02 {
         System.out.println(result.color);
 
         reader.close();
+
     }
 
     private static Storage findColorBox(int [][] box, int stX, int edX, int stY, int edY) {
