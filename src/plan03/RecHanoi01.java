@@ -6,7 +6,8 @@ import java.util.Stack;
 public class RecHanoi01 {
     /**
      * [1914 하노이 탑]
-     * 세 개의 장대가 있고 첫 번째 장대에는 반경이 서로 다른 n개의 원판이 쌓여 있다. 
+     * <br>
+     * 세 개의 장대가 있고 첫 번째 장대에는 반경이 서로 다른 n개의 원판이 쌓여 있다.
      * 각 원판은 반경이 큰 순서대로 쌓여있다. 이제 수도승들이 다음 규칙에 따라 첫 번째 장대에서 세 번째 장대로 옮기려 한다.
      * 
      * 한 번에 한 개의 원판만을 다른 탑으로 옮길 수 있다.
@@ -23,8 +24,11 @@ public class RecHanoi01 {
         System.out.println(cnt);
 
         Stack<Integer>[] stack = new Stack[3];
+        stack[0] = new Stack<>();
+        stack[1] = new Stack<>();
+        stack[2] = new Stack<>();
 
-        for(var i = num; i < 0; i--)
+        for (int i = num; i > 0; i--)
             stack[0].push(i);
 
         while(cnt-->0){
@@ -37,7 +41,7 @@ public class RecHanoi01 {
     
     public static void recHanoi(int now, int spot, Stack<Integer>[] stack){
         if(stack[now].empty()) return;
-        int other = (3 - now + spot);
+        int other = (3 - now - spot);
         int push = stack[now].size() % 2 == 0 ? other : spot;
 
         // 이동하는 값보다 클 경우
@@ -47,7 +51,7 @@ public class RecHanoi01 {
         // 값 이동
         stack[push].push(stack[now].pop());
         
-        System.out.println(now + " " + push);
+        System.out.println((now+1) + " " + (push+1));
 
         recHanoi(now, spot, stack);
 
