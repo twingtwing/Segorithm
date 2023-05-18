@@ -30,31 +30,11 @@ public class RecHanoi01 {
 
         for (int i = num; i > 0; i--)
             stack[0].push(i);
-
-        while(cnt-->0){
-            recHanoi(stack[0].empty() ? 1 : 0, 2, stack);
-        }
+        
+        // 답보자
 
         scanner.close();
     }
-    
-    
-    public static void recHanoi(int now, int spot, Stack<Integer>[] stack){
-        if(stack[now].empty()) return;
-        int other = (3 - now - spot);
-        int push = stack[now].size() % 2 == 0 ? other : spot;
 
-        // 이동하는 값보다 클 경우
-        if(!stack[push].isEmpty() && stack[push].peek() < stack[now].peek())
-            recHanoi(push, push == spot ? other : spot, stack);
-
-        // 값 이동
-        stack[push].push(stack[now].pop());
-        
-        System.out.println((now+1) + " " + (push+1));
-
-        recHanoi(now, spot, stack);
-
-    }
 
 }
