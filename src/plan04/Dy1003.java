@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class DyPro01 {
+public class Dy1003 {
     public static void main(String[] args) throws IOException {
         // 퇴사
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

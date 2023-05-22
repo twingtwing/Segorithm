@@ -3,7 +3,6 @@ package plan03;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 public class RecSort03 {
     /**
@@ -17,10 +16,10 @@ public class RecSort03 {
      * 나이는 1보다 크거나 같으며, 200보다 작거나 같은 정수이고, 이름은 알파벳 대소문자로 이루어져 있고,
      * 길이가 100보다 작거나 같은 문자열이다. 입력은 가입한 순서로 주어진다.<br>
      * 첫째 줄부터 총 N개의 줄에 걸쳐 온라인 저지 회원을 나이 순,
-     * 나이가 같으면 가입한 순으로 한 줄에 한 명씩 나이와 이름을 공백으로 구분해 출력한다.
+     * 나이가 같으면 가입한 순으로 한 줄에 한 명씩 나이와 이름을 공백으로 구분해 출력한다.<br><br>
      *
      * KeyPoint!!
-     * 중복된 값의 정렬을 유지하고싶으면 병합 정렬을 사용해야한다.
+     * StringBuilder 배열을 이용해서 풀이
      * */
     public static void main(String[] args) throws IOException {
         StringBuilder result = new StringBuilder();
@@ -30,11 +29,13 @@ public class RecSort03 {
         boolean [] sort = new boolean[201];
         StringBuilder [] input = new StringBuilder[201];
         String str;
+        int index;
 
         while (num-- > 0) {
             str = reader.readLine();
-            sort[Integer.parseInt(str.replaceAll("\\D",""))] = true;
-            input[num] = input[num] == null? new StringBuilder(str) : input[num].append("\n").append(str);
+            index = Integer.parseInt(str.replaceAll("\\D",""));
+            sort[index] = true;
+            input[index] = input[index] == null? new StringBuilder(str) : input[index].append("\n").append(str);
         }
 
         for (int i = 1; i < sort.length; i++){
