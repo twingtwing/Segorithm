@@ -1,6 +1,6 @@
 package plan04;
 
-import java.io.BufferedReader;
+import java.util.Scanner;
 
 public class Dy11053 {
     /**
@@ -15,8 +15,13 @@ public class Dy11053 {
      * */
     public static void main(String[] args) {
         /*6
-10 20 10 30 20 50 -> 4
-*/
+        10 20 10 30 20 50 -> 4
+        */
+        Scanner scanner = new Scanner(System.in);
+        int cnt = Integer.parseInt(scanner.nextLine());
 
+
+
+        scanner.close();
     }
 }
