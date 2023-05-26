@@ -2,7 +2,7 @@ package plan04;
 
 import java.util.Scanner;
 
-public class Dy11054 {
+public class Dy11054_01 {
     /**
      * [11054 가장 긴 바이토닉 부분 수열]
      * <br>
@@ -11,7 +11,8 @@ public class Dy11054 {
      * 수열 A가 주어졌을 때,<br>
      * 그 수열의 부분 수열 중 바이토닉 수열이면서 가장 긴 수열의 길이를 구하는 프로그램을 작성<br>
      * 첫째 줄에 수열 A의 크기 N이 주어지고, 둘째 줄에는 수열 A를 이루고 있는 Ai가 주어진다.<br>
-     * (1 ≤ N ≤ 1,000, 1 ≤ Ai ≤ 1,000)<br>
+     * (1 ≤ N ≤ 1,000, 1 ≤ Ai ≤ 1,000)<br><br>
+     * 동적 계획법(Dynamic Programming) 풀이
      * */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

@@ -21,27 +21,43 @@ public class Dy11053 {
         Scanner scanner = new Scanner(System.in);
         int cnt = Integer.parseInt(scanner.nextLine());
 
-        int len = 0;
-        int [] sort = new int[cnt];
-        int [] sequence = new int[cnt];
+        int len = 1;
+        int [] sort = new int[1001];
+        int [] sequence = new int[1001];
+        sort[1] = scanner.nextInt();
+        sequence[1] = sort[1];
 
-        for (int i = 0; i < cnt; i++) {
+        for (int i = 2; i <= cnt; i++) {
             sort[i] = scanner.nextInt();
             if (sort[i] > sequence[len])
-                sequence[len++] = sort[i];
-            else{
-                int index = binarySearch(sequence,0,len,sort[i]);
-                if (index < 0){
-                    
-                }
-            }
+                sequence[++len] = sort[i];
+            // 작은 경우, sort[i]값보다 가장 근소한 차이로 큰 sequence 값와 교체한다.
+            // len을 수정하지 않는 이유는
+            // 1245 -> 1235 로 변경해도
+            // 뒤에서 67이 발견되어서 124567이 가장 긴 길이여도 123567로 구현이 가능하기 때문이다.
+            // 또한, 뒤에서 456을 발견해서 123456이 가장 긴 길이도 성립이 가능하기 때문이다.
+            else if (sort[i] < sequence[1])
+                sequence[1] = sort[i];
+            else
+                sequence[binarySearch(sequence,1, len, sort[i])] = sort[i];
         }
 
-
+        System.out.println(len);
         scanner.close();
     }
 
-    private static int binarySearch(int[] sequence, int i, int len, int i1) {
-        return 0;
+    private static int binarySearch(int[] sequence, int start, int end, int target) {
+        int mid;
+        while (start < end) {
+            mid = (start + end) / 2;
+            if(sequence[mid] == target)
+                return mid;
+            else if(sequence[mid] > target)
+                end = mid;
+            else
+                start = mid + 1;
+
+        }
+        return start;
     }
 }
