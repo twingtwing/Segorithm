@@ -6,5 +6,4 @@ DP -
 
 ## 피보나치 수열
 
-## Just 수열
-Binary Search,,,?
+## 이분 탐색(Binary Search)
