@@ -11,7 +11,7 @@ public class Dy11726 {
      * 첫째 줄에 2×n 크기의 직사각형을 채우는 방법의 수를 10,007로 나눈 나머지를 출력 (1 ≤ n ≤ 1,000)<br><br>
      * !!KeyPoint!!<br>
      * 1. Long type 이라 할지라도 오버플로우가 날 수 있다.
-     * 2. Mod 또한 분배 법칙이 성립되므로 미리 처리 하는것이 오버플로우 방지할수있다.
+     * 2. Mod를 계속 처리하는 것이 오버플로우 방지할수있다.
      * */
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
