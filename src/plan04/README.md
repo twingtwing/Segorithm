@@ -1,5 +1,4 @@
-DP - 
-~~15486~~, ~~11058~~, 12865, 9251, 2225, 14501
+DP - _12865, 9251, 2225_
 
 # Dynamic Programming
 
@@ -11,3 +10,5 @@ DP -
 ### 이분 탐색(Binary Search)
 
 ### 동적 계획법(Dynamic Programming)
+
+### LCS(Longest Common Subsequence, 최장 공통 부분 수열)

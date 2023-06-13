@@ -6,5 +6,6 @@ public class Dy12865 {
      * */
     public static void main(String[] args) {
 
+        // 정답보기
     }
 }
