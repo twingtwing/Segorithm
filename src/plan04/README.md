@@ -1,5 +1,3 @@
-DP - _12865, 9251, 2225_
-
 # Dynamic Programming
 
 ## 피보나치 수열

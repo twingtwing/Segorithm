@@ -13,12 +13,16 @@ public class Dy2225 {
      * 첫째 줄에 답을 1,000,000,000으로 나눈 나머지를 출력 <br>
      * */
     public static void main(String[] args) {
+        // 20 2 21 / 6 3 84
         Scanner sc = new Scanner(System.in);
         StringTokenizer tokens = new StringTokenizer(sc.nextLine());
         int N = Integer.parseInt(tokens.nextToken());
         int K = Integer.parseInt(tokens.nextToken());
 
+        int cnt = 0;
+        for (int i = 0; i < N; i++) {
 
+        }
 
         sc.close();
     }
