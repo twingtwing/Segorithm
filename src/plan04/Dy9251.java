@@ -1,8 +1,6 @@
 package plan04;
 
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.StringTokenizer;
 
 public class Dy9251 {
     /**
@@ -18,20 +16,27 @@ public class Dy9251 {
         char [] big = (one.length() > two.length() ? one : two).toCharArray();
         char [] small = (one.length() > two.length() ? two : one).toCharArray();
 
-        int idx;
-        int max = -1;
-        for (int i = small.length - 1; i >= 0; i--) {
-            if (max >= i) break;
-            idx = i;
-            for (int j = big.length - 1; j >= 0; j--) {
-                if (idx < 0) break;
-                if (small[idx] == big[j])
-                    idx--;
+        int [][] len = new int[2][small.length + 1];
+
+        len[1][0] = -1;
+        for (int i = 0; i < small.length; i++) {
+            len[0][i + 1] = len[0][i];
+            len[1][i + 1] = len[1][i];
+            for (int j = 0; j < big.length; j++) {
+                if (small[i] == big[j] && len[1][i] < j){
+                    if(len[1][i] < j){
+                        len[1][i + 1] = j;
+                        len[0][i + 1]++;
+                        break;
+                    }
+                    // 오류
+                    // ABCDEFG
+                    // BCDEFGA
+                }
             }
-            max = Math.max((i - idx - 1), max);
         }
 
-        System.out.println(max);
+        System.out.println(len[0][small.length]);
         sc.close();
     }
 }
