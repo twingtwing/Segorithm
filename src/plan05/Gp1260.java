@@ -17,6 +17,9 @@ public class Gp1260 {
      * 정점의 개수 N(1 ≤ N ≤ 1,000), 간선의 개수 M(1 ≤ M ≤ 10,000), 탐색을 시작할 정점의 번호 V<br>
      * 어떤 두 정점 사이에 여러 개의 간선이 있을 수 있다. 간선은 양방향<br>
      * <br><br>
+     * !!KeyPoint!!<br>
+     * - 갔단 길을 다시 가지 말라는 언급이 없으므로 방문여부로 체크한다.
+     * - 더 이상 방문할 수 있는 점이 없는 경우 종료 => 즉, 모든 점을 방문하는것이 목표이다.
      * */
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -28,7 +31,8 @@ public class Gp1260 {
 
         int h;
         int y;
-        int [][] matrix = new int[N + 1][Math.min(N,M) + 1];
+        boolean [] visited = new boolean[N + 1];
+        int [][] matrix = new int[N + 1][N + 1];
         for (int i = 0; i < M; i++) {
             tokens = new StringTokenizer(reader.readLine());
             h = Integer.parseInt(tokens.nextToken());
@@ -40,21 +44,21 @@ public class Gp1260 {
         StringBuilder result = new StringBuilder();
 
         // DFS : 재귀호출 이용
-        srhDFS(V, matrix, result);
+        srhDFS(V, matrix, visited, result);
 
         result.append("\n");
 
         // BFS : Queue 이용
         Queue<Integer> queue = new LinkedList<>();
         queue.add(V);
+        visited[V] = false;
 
         while (!queue.isEmpty()){
             int idx = queue.remove();
             for (int i = 1; i < matrix[0].length; i++) {
-                if (i == idx) continue;
-                if(matrix[idx][i] == 1){
-                    matrix[idx][i] = 0;
-                    matrix[i][idx] = 0;
+                if(!visited[i]) continue;
+                if(matrix[idx][i] == 1 || matrix[i][idx] == 1){
+                    visited[i] = false;
                     queue.add(i);
                 }
             }
@@ -65,18 +69,13 @@ public class Gp1260 {
         reader.close();
     }
 
-    private static void srhDFS(int idx, int[][] matrix, StringBuilder result) {
+    private static void srhDFS(int idx, int[][] matrix, boolean [] visited, StringBuilder result) {
+        visited[idx] = true;
         result.append(idx).append(" ");
         for (int i = 1; i < matrix[0].length; i++) {
-            if (i == idx) continue;
-            if (matrix[idx][i] == 1){
-                matrix[idx][i] = 0;
-                matrix[i][idx] = 0;
-                srhDFS(i, matrix, result);
-                matrix[idx][i] = 1;
-                matrix[i][idx] = 1;
-                break;
-            }
+            if (visited[i]) continue;
+            if (matrix[idx][i] == 1 || matrix[i][idx] == 1)
+                srhDFS(i, matrix, visited, result);
         }
     }
 }

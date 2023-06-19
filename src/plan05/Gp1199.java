@@ -10,6 +10,9 @@ import java.util.StringTokenizer;
 public class Gp1199 {
     /**
      * [1199 오일러 회로]
+     * <br>
+     * - 깊이 우선 탐색<br>
+     * - 오일러 회로
      * */
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
