@@ -3,10 +3,7 @@ package plan05;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Gp2252 {
     /**
@@ -21,29 +18,7 @@ public class Gp2252 {
         int N = Integer.parseInt(tokens.nextToken());
         int M = Integer.parseInt(tokens.nextToken());
 
-        int i, j;
-        int [][] graph = new int[N+1][N+1];
-        while (M-- > 0) {
-            tokens = new StringTokenizer(reader.readLine());
-            i = Integer.parseInt(tokens.nextToken());
-            j = Integer.parseInt(tokens.nextToken());
-            graph[i][++graph[i][0]] = j;
-            graph[0][j]++;
-        }
-
-        Queue<Integer> queue = new LinkedList<>();
-        for (int k = 1; k <= N; k++) {
-            if(graph[0][k] == 0)
-                queue.add(k);
-        }
-
-        int idx;
-        StringBuilder result = new StringBuilder();
-        while (!queue.isEmpty()){
-            idx = queue.remove();
-
-//            result.append(idx),graph" "
-        }
+        // 정답보기 : 알고리즘에 대해 이해 필요 
 
         reader.close();
     }
