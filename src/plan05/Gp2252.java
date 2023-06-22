@@ -18,8 +18,44 @@ public class Gp2252 {
         int N = Integer.parseInt(tokens.nextToken());
         int M = Integer.parseInt(tokens.nextToken());
 
-        // 정답보기 : 알고리즘에 대해 이해 필요 
+        int [][] subun = new int[2][N+1];
+        int [] inDegree = new int[N+1]; // 진입 차수
+        ArrayList<Integer> [] graph = new ArrayList[N+1]; // Adjacent List
 
+        for (int i = 1; i <= N; i++)
+            graph[i] = new ArrayList<>();
+
+        int a;
+        int b;
+        int idx = 0;
+        for (int i = 0; i < M; i++) {
+            tokens = new StringTokenizer(reader.readLine());
+            a = Integer.parseInt(tokens.nextToken());
+            b = Integer.parseInt(tokens.nextToken());
+            graph[a].add(b);
+            inDegree[b]++;
+        }
+
+        // 위상 정렬
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 1; i <= N; i++) {
+            if (inDegree[i] == 0){
+                queue.add(i);
+            }
+        }
+
+        StringBuilder result = new StringBuilder();
+        while (!queue.isEmpty()){
+            idx = queue.poll();
+            result.append(idx).append(" ");
+            for (int n : graph[idx]) {
+                inDegree[n]--;
+                if (inDegree[n] == 0)
+                    queue.add(n);
+            }
+        }
+
+        System.out.println(result);
         reader.close();
     }
 }
