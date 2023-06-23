@@ -1,5 +1,6 @@
 package plan05;
 
+import javax.management.openmbean.CompositeType;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,70 +18,74 @@ public class Gp1707 {
      * 그러한 그래프를 특별히 이분 그래프 (Bipartite Graph)<br>
      * 이분 그래프인지 아닌지 판별하는 그래프 구현
      * <br><br>
-     * 이분 그래프를 판별하는 알고리즘 중 하나인 색칠 (Coloring) 알고리즘
+     * 1. 이분 그래프를 판별하는 알고리즘 중 하나인 색칠 (Coloring) 알고리즘<br>
+     * 2. 메모리 제한이 있기 때문에 Adjacency list 을 이용한다.
      * */
+
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int K = Integer.parseInt(reader.readLine());
 
         int N;
         int M;
-        int V;
-        String rs;
+        BiGraph graph;
+        StringBuilder result = new StringBuilder();
         StringTokenizer tokens;
-        int [] colors = new int[20001];
-        ArrayList<ArrayList<Integer>> graph;
-        Stack<Integer> stack = new Stack<>();
         while (K-- > 0) {
             tokens = new StringTokenizer(reader.readLine());
             N = Integer.parseInt(tokens.nextToken());
             M = Integer.parseInt(tokens.nextToken());
 
-            graph = new ArrayList<>();
-            Arrays.fill(colors,0, N + 1,-1);
-            for (int i = 0; i <= N; i++)
-                graph.add(new ArrayList<>());
-
+            graph = new BiGraph(N);
             while (M-- > 0) {
                 tokens = new StringTokenizer(reader.readLine());
-                N = Integer.parseInt(tokens.nextToken());
-                V = Integer.parseInt(tokens.nextToken());
-                graph.get(N).add(V);
-                graph.get(V).add(N);
+                graph.addEdge(Integer.parseInt(tokens.nextToken()),Integer.parseInt(tokens.nextToken()));
             }
 
-            rs = "YES";
-            stack.clear();
-            for (int i = 1; i <= N; i++) {
-                for (int j = 0; i < graph.get(i).size(); j++) {
-
-                }
-            }
-
-//            for (int i = 1; i <= N; i++){
-//                if (colors[i] == -1){
-//                    if (!dfs(i, graph, colors, 0)){
-//                        rs = "NO";
-//                        break;
-//                    }
-//                }
-//            }
-
-            System.out.println(rs);
+            result.append(graph.judgeColor()).append("\n");
         }
 
+        System.out.println(result);
         reader.close();
     }
 
-//    private static boolean dfs(int i, ArrayList<ArrayList<Integer>> graph, int[] colors, int val) {
-//        colors[i] = val;
-//        for (int n : graph.get(i)){
-//            if (colors[n] == val)
-//                return false;
-//            if (colors[n] == -1 && !dfs(n, graph, colors, 1 - val))
-//                return false;
-//        }
-//        return true;
-//    }
+}
+
+class BiGraph{
+    private int [] colors;
+    private ArrayList<ArrayList<Integer>> graph;
+
+    BiGraph(int N){
+        this.colors = new int[N+1];
+        this.graph = new ArrayList<>();
+        for (int i = 0; i <= N; i++)
+            this.graph.add(new ArrayList<>());
+    }
+
+    void addEdge(int i, int j){
+        this.graph.get(i).add(j);
+        this.graph.get(j).add(i);
+    }
+
+    // 연결 조합이 2개 이상인 경우도 고려
+    String judgeColor(){
+        for (int i = 1; i < this.colors.length; i++) {
+            if (this.colors[i] == 0 && !srhColor(i, 1))
+                return "NO";
+        }
+        return "YES";
+    }
+
+    // colors에 값이 모두 들어가면 break가 되기때문에 따로 if 하거나 간선을 수정할 필요가 없음
+    private boolean srhColor(int idx, int val){
+        this.colors[idx] = val;
+        for (int i : graph.get(idx)) {
+            if (this.colors[i] == val)
+                return false;
+            if (this.colors[i] == 0 && !srhColor(i, val * -1))
+                return false;
+        }
+        return true;
+    }
 
 }
