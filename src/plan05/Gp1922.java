@@ -11,14 +11,15 @@ public class Gp1922 {
     /**
      * [1922 네트워크 연결]
      * <br>
-     * 최소 신장트리 / Prim 알고리즘 / Array 로 풀어보기
+     * 최소 신장트리 / Kruskal 알고리즘
      * */
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(reader.readLine());
-        int M = Integer.parseInt(reader.readLine());
+        StringTokenizer str = new StringTokenizer(reader.readLine());
 
-        StringTokenizer str;
+        int N = Integer.parseInt(str.nextToken());
+        int M = Integer.parseInt(str.nextToken());
+
         ArrayMST mst = new ArrayMST(N);
         while (M-- > 0){
             str = new StringTokenizer(reader.readLine());
@@ -52,22 +53,24 @@ class ArrayMST{
         PriorityQueue<Edge> queue = new PriorityQueue<>();
 
         Edge e;
+        int max = 0;
         int total = 0;
+        int cnt = this.visited.length - 1;
         queue.add(new Edge(1, 0));
-        while (!queue.isEmpty()) {
+        while (cnt > 0) {
             e = queue.poll();
             if (this.visited[e.p]) continue;
-
+            cnt--;
             total += e.v;
+            max = Math.max(max,e.v);
             this.visited[e.p] = true;
             for (Edge a : this.graph[e.p]){
                 if (!this.visited[a.p])
                     queue.add(a);
-
             }
         }
 
-        return total;
+        return total - max;
     }
 
 }
