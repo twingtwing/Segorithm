@@ -1,5 +1,6 @@
 # 그리디
 
+## Greedy vs DP
 11047, 
 10610, 
 11501,
@@ -8,11 +9,13 @@
 2873,  
 
 ## Prim
+4386
 
 ## Kruskal
+9372
 
 ## Dijkstra
+1238
 
 ## Huffman tree & code	
-
-## Greedy vs DP
+6800, 9533
