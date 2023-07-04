@@ -21,6 +21,13 @@ public class Ip14503 {
         int y = Integer.parseInt(tokens.nextToken());
         int way = Integer.parseInt(tokens.nextToken());
 
+        for (int i = 1; i <= N; i++) {
+            tokens = new StringTokenizer(reader.readLine());
+            for (int j = 1; j <= M ; j++)
+                room[i][j] = Integer.parseInt(tokens.nextToken());
+        }
+
+        // 답보자
 
         reader.close();
     }
