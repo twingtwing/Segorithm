@@ -19,6 +19,7 @@ public class Ip14499 {
         int y = Integer.parseInt(tokens.nextToken());
         int K = Integer.parseInt(tokens.nextToken());
 
+        int [] dice = new int[6];
         int [][] map = new int[N][M];
         for (int i = 0; i < N; i++) {
             tokens = new StringTokenizer(reader.readLine());
@@ -26,46 +27,57 @@ public class Ip14499 {
                 map[i][j] = Integer.parseInt(tokens.nextToken());
         }
 
-        // 동쪽은 1, 서쪽은 2, 북쪽은 3, 남쪽은 4
-        int i = 0;
-        int s = 0;
-        int e = 1;
-        int [] idx = new int[7];
-        int [][] four = {{0,1},{0,-1},{-1,0},{1,0}};
-        int [][] dice = {{3,1,6,4},{3,2,6,5},{3,4,6,1},{3,5,6,2}};
         StringBuilder result = new StringBuilder();
         tokens = new StringTokenizer(reader.readLine());
+        int [][] four = {{0,0},{0,1},{0,-1},{-1,0},{1,0}}; // 동쪽은 1, 서쪽은 2, 북쪽은 3, 남쪽은 4
 
+        // 주사위 이동경로를 규칙적으로 하기는 힘들기 때문에
+        // 이동할때마다 주사위 숫자를 변경하는걸로 수정
         while (K-- > 0){
-            idx[i] = map[x][y];
-
             int way = Integer.parseInt(tokens.nextToken());
-            int tx = x + four[way - 1][0];
-            int ty = y + four[way - 1][1];
+            int tx = x + four[way][0];
+            int ty = y + four[way][1];
             if (tx < 0 || tx >= N || ty < 0 || ty >= M)
                 continue;
             x = tx;
             y = ty;
+
+            int tmp = dice[5];
             switch (way) {
-                case 1:
-                    e = (e + 1) % 4;
+                case 1: // 동쪽 이동
+                    dice[5] = dice[3];
+                    dice[3] = dice[0];
+                    dice[0] = dice[1];
+                    dice[1] = tmp;
                     break;
                 case 2:
-                    e = (4 + (e - 1)) % 4;
+                    dice[5] = dice[1];
+                    dice[1] = dice[0];
+                    dice[0] = dice[3];
+                    dice[3] = tmp;
                     break;
                 case 3:
-                    if (e % 2 == 0)
-                        e = (4 + (e - 1)) % 4;
-                    s = (4 + (s - 1)) % 4;
+                    dice[5] = dice[4];
+                    dice[4] = dice[0];
+                    dice[0] = dice[2];
+                    dice[2] = tmp;
                     break;
                 case 4:
-                    if (e % 2 == 0)
-                        e = (4 + (e - 1)) % 4;
-                    s = (s + 1) % 4;
+                    dice[5] = dice[2];
+                    dice[2] = dice[0];
+                    dice[0] = dice[4];
+                    dice[4] = tmp;
                     break;
             }
-            i = dice[s][e];
-            result.append(idx[(i + 3) % 6]).append("\n");
+
+            if (map[x][y] == 0)
+                map[x][y] = dice[5];
+            else{
+                dice[5] = map[x][y];
+                map[x][y] = 0;
+            }
+
+            result.append(dice[0]).append("\n");
         }
 
         System.out.println(result);
