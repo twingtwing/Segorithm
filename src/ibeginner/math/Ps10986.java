@@ -12,29 +12,19 @@ public class Ps10986 {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer tokens = new StringTokenizer(reader.readLine());
-        int [] nums = new int[Integer.parseInt(tokens.nextToken()) + 1];
+        long [] nums = new long[Integer.parseInt(tokens.nextToken()) + 1];
         int M = Integer.parseInt(tokens.nextToken());
 
-        int s = 0;
-        int e = 0;
+        long count = 0;
+        long [] mods = new long[M];
         tokens = new StringTokenizer(reader.readLine());
         for (int i = 1; i < nums.length; i++) {
-            nums[i] = nums[i - 1] + Integer.parseInt(tokens.nextToken());
-            if(nums[i] < M) e = i;
-        }
+            nums[i] = (nums[i - 1] + Long.parseLong(tokens.nextToken())) % M;
+            count += mods[(int) nums[i]];
+            mods[(int) nums[i]]++;
+            if (nums[i] == 0)
+                count++;
 
-        int count = 0;
-        for (int i = 0; i < nums.length; i++) {
-
-        }
-
-        while (s < e){
-            if (nums[e] - nums[s] > M){
-                if (nums[e] - nums[s++] == M)
-                    count++;
-            }
-            else if (nums[e] - nums[s] < M)
-                e++;
         }
 
         System.out.println(count);
