@@ -10,7 +10,7 @@
   - 유클리드 호제법
   - 에라토네스의 체 ➕
 - 자료구조
-  - Stack
+  - Stack 💊
   - Queue
   - Heap
   - Tree
