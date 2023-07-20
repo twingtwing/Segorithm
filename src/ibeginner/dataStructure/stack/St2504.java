@@ -9,7 +9,7 @@ public class St2504 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         char [] chars = sc.nextLine().toCharArray();
-        Stack stack = new Stack(chars.length);
+        Stack01 stack = new Stack01(chars.length);
 
         int sum = 1;
         boolean flag = false;
@@ -57,11 +57,11 @@ public class St2504 {
     }
 }
 
-class Stack{
+class Stack01 {
     int top;
     int [] stack;
 
-    Stack(int len) {
+    Stack01(int len) {
         this.top = -1;
         this.stack = new int[len*2];
     }
