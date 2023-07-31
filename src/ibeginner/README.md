@@ -21,18 +21,18 @@
 - 투포인터
 - 백트래킹
 - 구현 & 시뮬레이션
-- Dynamic Programming
+- Dynamic Programming : 점화식, 수학
 - Greedy
 
 ## 🪡 Plus
-- 최단거리
+- 최단거리 : BFS
   - 다익스트라
   - 플로이드 와샬
 - MST ( Minimum Spanning Tree )
   - 프림
   - 크루스칼
 - LCS, LIS
-- 그래프 이론
+- 그래프 이론 : DFS ? 
   - Union-Find
   - 위상절렬
   - 크루스칼,,?
