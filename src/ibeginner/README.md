@@ -8,13 +8,12 @@
 - 수학 
   - 누적합
   - 유클리드 호제법
-  - 에라토네스의 체 ➕
+  - 에라토네스의 체 
 - 자료구조
-  - Stack 
-  - Queue
-  - Heap
-  - Tree
-  - Graph
+  - Stack 💊
+  - Queue & Heap
+  - Deque
+  - Set & Map
 - 정렬
 - DFS, BFS
 - 이분 탐색
