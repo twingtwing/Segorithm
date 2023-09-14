@@ -17,25 +17,31 @@ public class Hp2696 {
 
         while (N-->0){
             int len = Integer.parseInt(reader.readLine());
-            StringTokenizer str = new StringTokenizer(reader.readLine());
             Heap maxHeap = new Heap(len, Type.MAX);
             Heap minHeap = new Heap(len, Type.MIN);
+
+            result.append((len + 1)/2).append("\n");
+            StringTokenizer str = new StringTokenizer(reader.readLine());
             for (int i = 0; i < len; i++) {
-                if (len % 10 == 0)
+                if (i > 0 && i % 10 == 0){
                     str = new StringTokenizer(reader.readLine());
+                    if(i % 20 == 0)
+                        result.append("\n");
+                }
+
                 int n = Integer.parseInt(str.nextToken());
                 if (maxHeap.isEmpty() || maxHeap.peek() >= n)
                     maxHeap.offer(n);
                 else
                     minHeap.offer(n);
-
                 if (maxHeap.getSize() > minHeap.getSize() + 1)
                     minHeap.offer(maxHeap.poll());
                 else if(minHeap.getSize() > maxHeap.getSize())
                     maxHeap.offer(minHeap.poll());
 
-                if (i % 2 == 1)
+                if (i % 2 == 0)
                     result.append(maxHeap.peek()).append(" ");
+
             }
             result.append("\n");
         }
@@ -73,9 +79,9 @@ class Heap{
 
         int child = size;
         while (child > 1 &&
-                this.type == Type.MAX ?
-                heap[child] > heap[child + 1] : heap[child] < heap[child + 1]){
-            swap(child, child/2);
+                (this.type == Type.MAX ?
+                        heap[child] > heap[child/2] : heap[child] < heap[child/2])){
+            swap(child, child / 2);
             child/=2;
         }
     }
@@ -88,8 +94,8 @@ class Heap{
         while (parent * 2 <= size){
             int child = parent * 2;
             if (child < size &&
-                    this.type == Type.MAX ?
-                    heap[child] < heap[child + 1] : heap[child] > heap[child + 1])
+                    (this.type == Type.MAX ?
+                            heap[child] < heap[child + 1] : heap[child] > heap[child + 1]))
                 child++;
             if (this.type == Type.MAX ? heap[parent] >= heap[child] : heap[parent] <= heap[child])
                 break;
