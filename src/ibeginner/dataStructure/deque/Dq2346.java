@@ -17,25 +17,33 @@ public class Dq2346 {
         StringBuilder result = new StringBuilder();
         StringTokenizer tokens = new StringTokenizer(sc.nextLine());
 
-        List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < N; i++)
-            list.add(Integer.valueOf(tokens.nextToken()));
+        List<Storage> list = new ArrayList<>();
+        for (int i = 1; i <= N; i++)
+            list.add(new Storage(i, Integer.parseInt(tokens.nextToken())));
 
-        int idx = list.remove(0);
-        result.append(1).append(" ");
-        while (!list.isEmpty()) {
-
+        int gap;
+        int index = 0;
+        while (true) {
+            gap = list.get(index).gap;
+            result.append(list.remove(index).index).append(" ");
+            if (list.isEmpty())
+                break;
+            if (gap > 0) // 요소 1개 삭제 했기 때문에 - 1
+                index = (index + gap - 1) % list.size();
+            else // 뒤에 index는 삭제된 영향이 없기 때문에 처리 하지 않음 대신 - 인 경우 고려
+                index = ((index + gap) % list.size() + list.size()) % list.size();
         }
 
+        System.out.println(result);
         sc.close();
     }
 }
 
-class Stroage{
-    int data;
+class Storage{
+    int gap;
     int index;
-    Stroage(int data, int index){
-        this.data = data;
+    Storage(int index, int gap){
+        this.gap = gap;
         this.index = index;
     }
 }
