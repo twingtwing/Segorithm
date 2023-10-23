@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Mp4358 {
+public class Mp4195 {
     /**
      * [4195 생태학]
      * */
